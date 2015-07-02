@@ -1,0 +1,5 @@
+.symbol { font-size: 1.5em; text-align: center; }
+.price { font-size: 2em; padding: 20px 0 22px; text-align: center; }
+.icon { float: left; }
+.change { float: right; font-size: 0.8em; line-height: 20px; text-align: right; }
+.change .dollar { padding-right: 2px; }

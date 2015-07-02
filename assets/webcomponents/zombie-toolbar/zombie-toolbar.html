@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower/paper-button/paper-button.html">
+<link rel="import" href="../../bower/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower/paper-toolbar/paper-toolbar.html">
+
+<dom-module id="zombie-toolbar">
+  <!-- Styling -->
+  <link rel="import" type="css" href="zombie-toolbar.css">
+  <!-- Template -->
+  <template>
+    <paper-toolbar class="toolbar">
+    	<h1 class="title">zombieboard</h1>
+    	<div class="buttons">
+	    	<paper-button>
+			  	<iron-icon icon="settings"></iron-icon>
+			  	<p> Settings</p>
+			  </paper-button>
+			  <paper-icon-button icon="settings"></paper-icon-button>
+			 </div>
+		</paper-toolbar>
+  </template>
+  <!-- Polymer glue -->
+  <script src="zombie-toolbar.js"></script>
+</dom-module>
+

@@ -1,0 +1,59 @@
+<link rel="import" href="../../bower/polymer/polymer.html">
+<link rel="import" href="../../bower/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower/paper-material/paper-material.html">
+<link rel="import" href="../../bower/paper-ripple/paper-ripple.html">
+<link rel="import" href="../../bower/paper-styles/paper-styles.html">
+
+<script>
+	ZombieBlockBehavior = {
+		properties: {
+			display: {
+				type: Boolean,
+				value: false/*,
+				notify: true,
+				observer: 'displayChanged'*/
+			},
+			columns: {
+				type: Number,
+				value: 1
+			},
+			rows: {
+				type: Number,
+				value: 1
+			}
+		},
+		ready: function() {
+			// Randomly generate background color
+			var colors = window.CONFIG.COLOR_PALETTE;
+			this.style.background = colors[Math.floor(Math.random() * colors.length)];
+			// Setup column classes
+			if(this.columns > 1) {
+				this.classList.add('two-columns');
+			}
+			// Setup row classes
+			switch(this.rows) {
+				case 2:
+					this.classList.add('two-rows');
+					break;
+				case 3:
+					this.classList.add('three-rows');
+					break;
+				case 4:
+					this.classList.add('four-rows');
+					break;
+				default:
+					break;
+			}
+			this.classList.add('block');
+		},
+		displayChanged: function(display) {
+			
+		},
+		setDimensions: function(columns, rows) {
+			this.columns = columns;
+			this.rows = rows;
+		}
+	};
+</script>

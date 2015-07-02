@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="author" content="Patrick Valle">
+    <meta name="viewport" content="width=device-width">
+    <!-- styles -->
+    <link rel="stylesheet" href="assets/styles/app.css">
+    <!-- webcomponents shim -->
+    <script src="assets/bower/webcomponentsjs/webcomponents.js"></script>
+    <!-- webcomponent imports -->
+    <link rel="import" href="assets/webcomponents/zombie-blocks/zombie-blocks.html">
+    <link rel="import" href="assets/webcomponents/zombie-block-alert/zombie-block-alert.html">
+    <link rel="import" href="assets/webcomponents/zombie-block-stock/zombie-block-stock.html">
+    <link rel="import" href="assets/webcomponents/zombie-block-weather/zombie-block-weather.html">
+    <link rel="import" href="assets/webcomponents/zombie-toolbar/zombie-toolbar.html">
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script>
+      var CONFIG = {
+        WUNDERGROUND_API_KEY: localStorage.getItem('WUNDERGROUND_API_KEY'),
+        COLOR_PALETTE: [
+          '#f44336',
+          '#e91e63',
+          '#9c27b0',
+          '#673ab7',
+          '#3f51b5',
+          '#2196f3',
+          '#03a9f4',
+          '#00bcd4',
+          '#8bc34a',
+          '#ffc107',
+          '#ff9800',
+          '#ff5722'
+        ]
+      };
+    </script>
+  </head>
+  <body unresolved>
+    <zombie-toolbar></zombie-toolbar>
+    <!-- Blocks -->
+  	<zombie-blocks>
+  		<!-- Weather -->
+  		<zombie-block-weather zip-code="27705"></zombie-block-weather>
+  		<zombie-block-weather zip-code="08054"></zombie-block-weather>
+      <!-- Alerts -->
+      <zombie-block-alert group="09703356818366245740" id="13214515735875092081"></zombie-block-alert>
+  		<!-- Stocks -->
+			<zombie-block-stock symbol="TSLA"></zombie-block-stock>
+			<zombie-block-stock symbol="SCTY"></zombie-block-stock>
+			<zombie-block-stock symbol="GOOGL"></zombie-block-stock>
+			<zombie-block-stock symbol="AMZN"></zombie-block-stock>
+		</cols>
+  </body>
+</html>

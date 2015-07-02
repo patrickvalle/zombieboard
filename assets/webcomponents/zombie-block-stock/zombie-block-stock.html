@@ -1,0 +1,27 @@
+<link rel="import" href="../zombie-block/zombie-block.html">
+
+<dom-module id="zombie-block-stock">
+  <!-- Styling -->
+  <link rel="import" type="css" href="../zombie-block/zombie-block.css">
+  <link rel="import" type="css" href="zombie-block-stock.css">
+  <!-- Template -->
+  <template>
+    <paper-material elevation="1">
+      <div class="content">
+        <p class="symbol"><a href="[[googleFinanceUrl]]" target="_blank">[[symbol]]</a></p>
+        <p class="price">[[stock.price]]</p>
+        <p class="icon">
+          <iron-icon icon="[[stock.icon]]"></iron-icon>
+        </p>
+        <p class="change">
+          <span class="dollar">[[stock.change.dollar]]</span>
+          <span class="percent">[[stock.change.percent]]</span>
+        </p>
+        <div class="clear"></div>
+      </div>
+    </paper-material>
+    <iron-ajax auto url="{{ajaxUrl}}" handle-as="document" on-response="onAjaxResponse"></iron-ajax>
+  </template>
+  <!-- Polymer glue -->
+  <script src="zombie-block-stock.js"></script>
+</dom-module>

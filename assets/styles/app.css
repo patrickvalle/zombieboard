@@ -1,0 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,100,300);
+
+body { background: #eee; cursor: default; font-family: 'Roboto', sans-serif; margin: 75px auto 0; padding-left: 10px; text-align: center; }
+body > * { text-align: left; }
+
+@media (max-width: 639px) {
+	body { margin-top: 67px; }
+}

@@ -1,0 +1,18 @@
+<link rel="import" href="../zombie-block/zombie-block.html">
+
+<dom-module id="zombie-block-alert">
+  <!-- Styling -->
+  <link rel="import" type="css" href="../zombie-block/zombie-block.css">
+  <link rel="import" type="css" href="zombie-block-alert.css">
+  <!-- Template -->
+  <template>
+    <paper-material elevation="1">
+      <div class="content">
+        
+      </div>
+    </paper-material>
+    <iron-ajax auto url="{{ajaxUrl}}" handle-as="xml" on-response="onAjaxResponse"></iron-ajax>
+  </template>
+  <!-- Polymer glue -->
+  <script src="zombie-block-alert.js"></script>
+</dom-module>
