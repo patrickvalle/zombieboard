@@ -12,6 +12,7 @@
     <!-- webcomponent imports -->
     <link rel="import" href="assets/webcomponents/zombie-blocks/zombie-blocks.html">
     <link rel="import" href="assets/webcomponents/zombie-block-alert/zombie-block-alert.html">
+    <link rel="import" href="assets/webcomponents/zombie-block-clock/zombie-block-clock.html">
     <link rel="import" href="assets/webcomponents/zombie-block-stock/zombie-block-stock.html">
     <link rel="import" href="assets/webcomponents/zombie-block-weather/zombie-block-weather.html">
     <link rel="import" href="assets/webcomponents/zombie-settings/zombie-settings.html">
@@ -25,11 +26,13 @@
     <zombie-toolbar></zombie-toolbar>
     <!-- Blocks -->
   	<zombie-blocks>
+      <!-- Clock -->
+      <zombie-block-clock military-time="true"></zombie-block-clock>
   		<!-- Weather -->
   		<zombie-block-weather zip-code="27705"></zombie-block-weather>
   		<zombie-block-weather zip-code="08054"></zombie-block-weather>
       <!-- Alerts -->
-      <zombie-block-alert group="09703356818366245740" id="13214515735875092081"></zombie-block-alert>
+      <zombie-block-alert group="09703356818366245740" id="18063237606118388744"></zombie-block-alert>
   		<!-- Stocks -->
 			<zombie-block-stock symbol="TSLA"></zombie-block-stock>
 			<zombie-block-stock symbol="SCTY"></zombie-block-stock>

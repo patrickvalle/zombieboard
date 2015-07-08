@@ -1,0 +1,22 @@
+<link rel="import" href="../zombie-block/zombie-block.html">
+
+<dom-module id="zombie-block-clock">
+  <!-- Styling -->
+  <link rel="import" type="css" href="../zombie-block/zombie-block.css">
+  <link rel="import" type="css" href="zombie-block-clock.css">
+  <!-- Template -->
+  <template>
+    <paper-material elevation="1">
+      <div class="content">
+        <p class="time">
+          <span class="hours">[[hours]]</span><span class="minutes">[[minutes]]</span>
+        </p>
+        <p class="calendar">
+          <span class="day">[[day]]</span><span class="month">[[month]]</span><span class="date">[[date]]</span>
+        </p>
+      </div>
+    </paper-material>
+  </template>
+  <!-- Polymer glue -->
+  <script src="zombie-block-clock.js"></script>
+</dom-module>

@@ -1,0 +1,6 @@
+.content { padding: 20px 0 0;text-align: center; }
+.time { font-size: 4em; }
+.time .hours:after { content: ":"; }
+.calendar { position: relative; top: -5px; }
+.calendar .day:after { content: ", "; }
+.calendar .month:after { content: " "; }
