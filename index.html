@@ -14,31 +14,14 @@
     <link rel="import" href="assets/webcomponents/zombie-block-alert/zombie-block-alert.html">
     <link rel="import" href="assets/webcomponents/zombie-block-stock/zombie-block-stock.html">
     <link rel="import" href="assets/webcomponents/zombie-block-weather/zombie-block-weather.html">
+    <link rel="import" href="assets/webcomponents/zombie-settings/zombie-settings.html">
     <link rel="import" href="assets/webcomponents/zombie-toolbar/zombie-toolbar.html">
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script>
-      var CONFIG = {
-        WUNDERGROUND_API_KEY: localStorage.getItem('WUNDERGROUND_API_KEY'),
-        COLOR_PALETTE: [
-          '#f44336',
-          '#e91e63',
-          '#9c27b0',
-          '#673ab7',
-          '#3f51b5',
-          '#2196f3',
-          '#03a9f4',
-          '#00bcd4',
-          '#8bc34a',
-          '#ffc107',
-          '#ff9800',
-          '#ff5722'
-        ]
-      };
-    </script>
   </head>
   <body unresolved>
+    <!-- Toolbar -->
     <zombie-toolbar></zombie-toolbar>
     <!-- Blocks -->
   	<zombie-blocks>
@@ -52,6 +35,8 @@
 			<zombie-block-stock symbol="SCTY"></zombie-block-stock>
 			<zombie-block-stock symbol="GOOGL"></zombie-block-stock>
 			<zombie-block-stock symbol="AMZN"></zombie-block-stock>
-		</cols>
+		</zombie-blocks>
+    <!-- Settings -->
+    <zombie-settings></zombie-settings>
   </body>
 </html>

@@ -4,6 +4,7 @@
 <link rel="import" href="../../bower/paper-dialog/paper-dialog.html">
 <link rel="import" href="../../bower/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../zombie-config/zombie-config.html">
 
 <dom-module id="zombie-toolbar">
   <!-- Styling -->
@@ -13,11 +14,11 @@
     <paper-toolbar class="toolbar">
     	<h1 class="title">zombieboard</h1>
     	<div class="buttons">
-	    	<paper-button>
+	    	<paper-button on-tap="onSettingsTap">
 			  	<iron-icon icon="settings"></iron-icon>
 			  	<p> Settings</p>
 			  </paper-button>
-			  <paper-icon-button icon="settings"></paper-icon-button>
+			  <paper-icon-button icon="settings" on-tap="onSettingsTap"></paper-icon-button>
 			 </div>
 		</paper-toolbar>
   </template>

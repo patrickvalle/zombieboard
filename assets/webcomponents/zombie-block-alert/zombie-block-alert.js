@@ -1,4 +1,4 @@
-(function() {
+(function(Polymer) {
 
   // Polymer definition
   Polymer({
@@ -38,4 +38,4 @@
     }
   });
 
-}());
+}(window.Polymer));

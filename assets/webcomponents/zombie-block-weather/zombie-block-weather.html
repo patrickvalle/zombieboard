@@ -1,5 +1,5 @@
-
 <link rel="import" href="../zombie-block/zombie-block.html">
+<link rel="import" href="../zombie-config/zombie-config.html">
 <link rel="import" href="../../bower/iron-icon/iron-icon.html">
 
 <dom-module id="zombie-block-weather">
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="content no-api-key">
-        <p>To use this block, you'll need to provide a <a href="http://www.wunderground.com/weather/api" target="_blank">Weather Underground API key</a><iron-icon icon="open-in-new"></iron-icon> in the <a href="#">settings</a> pane.</p>
+        <p>To use this block, you'll need to provide a <a href="http://www.wunderground.com/weather/api" target="_blank">Weather Underground API key</a><iron-icon icon="open-in-new"></iron-icon> in the <a href="#" on-tap="onSettingsClick">settings</a> pane.</p>
       </div>
     </paper-material>
     <iron-ajax auto url="{{ajaxUrl}}" handle-as="json" on-response="onAjaxResponse"></iron-ajax>

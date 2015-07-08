@@ -1,6 +1,5 @@
-(function(WUNDERGROUND_API_KEY) {
+(function(Polymer) {
 
-  // Constants
   var ICONS = {
     'chancerain': 'wi-day-showers',
     'chancetstorms': 'wi-day-storm-showers',
@@ -12,7 +11,6 @@
     'tstorms': 'wi-day-thunderstorm'
   };
 
-  // Polymer definition
   Polymer({
     is: 'zombie-block-weather',
     behaviors: [ZombieBlockBehavior],
@@ -37,21 +35,37 @@
       this.setDimensions(2, 2);
     },
     ready: function() {
-      if(WUNDERGROUND_API_KEY) {
+      this.registerGlobalListeners();
+      this.initializeDisplay();
+    },
+    initializeDisplay: function() {
+      if(ZombieConfig.keys.wunderground) {
+        this.$$('.content.has-api-key').style.display = 'block';
+        this.$$('.content.no-api-key').style.display = 'none';
         var ironAjax = this.$$('iron-ajax');
-        setInterval(function() {
-          ironAjax.generateRequest();
-        }, this.refreshEvery);
+        if(!this.refreshInterval) {
+          this.refreshInterval = setInterval(function() {
+            ironAjax.generateRequest();
+          }, this.refreshEvery);
+        }
       }
       else {
         this.$$('.content.has-api-key').style.display = 'none';
         this.$$('.content.no-api-key').style.display = 'block';
       }
     },
+    registerGlobalListeners: function() {
+      var _this = this;
+      document.addEventListener(ZombieConfig.events.settings.wunderground, function() {
+        _this.ajaxUrl = _this.computeAjaxUrl(_this.zipCode);
+        _this.$$('iron-ajax').generateRequest();
+        _this.initializeDisplay();
+      });
+    },
     computeAjaxUrl: function(zipCode) {
       var url = false;
-      if(WUNDERGROUND_API_KEY && zipCode) {
-        url = 'http://api.wunderground.com/api/' + WUNDERGROUND_API_KEY + '/forecast/conditions/q/' + zipCode + '.json';
+      if(ZombieConfig.keys.wunderground && zipCode) {
+        url = 'http://api.wunderground.com/api/' + ZombieConfig.keys.wunderground + '/forecast/conditions/q/' + zipCode + '.json';
       }
       return url;
     },
@@ -88,7 +102,10 @@
         };
         this.weather = weather;
       }
+    },
+    onSettingsClick: function() {
+      this.fire(ZombieConfig.events.settings.toggle);
     }
   });
 
-}(window.CONFIG.WUNDERGROUND_API_KEY));
+}(window.Polymer));

@@ -1,4 +1,4 @@
-(function() {
+(function(Polymer) {
 
   // Polymer definition
   Polymer({
@@ -6,7 +6,11 @@
     properties: {
     },
     ready: function() {
+
+    },
+    onSettingsTap: function() {
+    	this.fire(ZombieConfig.events.settings.toggle);
     }
   });
 
-}());
+}(window.Polymer));

@@ -1,4 +1,4 @@
-(function(Masonry) {
+(function(Polymer, Masonry) {
 
   // Polymer definition
   Polymer({
@@ -15,4 +15,4 @@
     }
   });
 
-}(window.Masonry));
+}(window.Polymer, window.Masonry));

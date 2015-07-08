@@ -1,0 +1,39 @@
+<link rel="import" href="../../bower/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower/paper-button/paper-button.html">
+<link rel="import" href="../../bower/paper-input/paper-input.html">
+<link rel="import" href="../../bower/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../zombie-config/zombie-config.html">
+
+<dom-module id="zombie-settings">
+  <!-- Styling -->
+  <link rel="import" type="css" href="zombie-settings.css">
+  <!-- Template -->
+  <template>
+  	<!-- shade overlay -->
+  	<div class="shade"></div>
+  	<!-- toolbar -->
+    <paper-toolbar class="tall settings">
+    	<!-- form inputs -->
+    	<div class="form">
+				<paper-input label="Weather Underground API key" name="wundergroundapikey" value="{{wundergroundApiKey}}"></paper-input>
+			</div>
+    	<!-- buttons -->
+    	<div class="bottom buttons">
+    		<paper-button on-tap="onClose">
+			  	<iron-icon icon="close"></iron-icon>
+			  	<p> Cancel</p>
+			  </paper-button>
+	    	<paper-button on-tap="onSave" raised class="primary">
+			  	<iron-icon icon="done"></iron-icon>
+			  	<p> Save</p>
+			  </paper-button>
+			  <paper-icon-button icon="close" on-tap="onClose"></paper-icon-button>
+			  <paper-icon-button icon="done" on-tap="onSave" raised class="primary"></paper-icon-button>
+			</div>
+		</paper-toolbar>
+  </template>
+  <!-- Polymer glue -->
+  <script src="zombie-settings.js"></script>
+</dom-module>
+

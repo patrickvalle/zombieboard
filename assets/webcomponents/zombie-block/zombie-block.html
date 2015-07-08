@@ -5,6 +5,7 @@
 <link rel="import" href="../../bower/paper-material/paper-material.html">
 <link rel="import" href="../../bower/paper-ripple/paper-ripple.html">
 <link rel="import" href="../../bower/paper-styles/paper-styles.html">
+<link rel="import" href="../zombie-config/zombie-config.html">
 
 <script>
 	ZombieBlockBehavior = {
@@ -26,7 +27,7 @@
 		},
 		ready: function() {
 			// Randomly generate background color
-			var colors = window.CONFIG.COLOR_PALETTE;
+			var colors = ZombieConfig.layout.palette;
 			this.style.background = colors[Math.floor(Math.random() * colors.length)];
 			// Setup column classes
 			if(this.columns > 1) {
