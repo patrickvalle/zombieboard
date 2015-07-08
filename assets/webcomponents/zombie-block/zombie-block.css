@@ -1,3 +1,4 @@
+:host { transition: background 2s; -webkit-transition: background 2s; };
 :host.block { height: 145px; margin-bottom: 10px; width: 145px; }
 :host.block.two-columns { width: 300px; }
 :host.block.two-rows { height: 300px; }

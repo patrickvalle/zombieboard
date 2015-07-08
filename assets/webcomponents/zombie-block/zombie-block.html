@@ -8,27 +8,22 @@
 <link rel="import" href="../zombie-config/zombie-config.html">
 
 <script>
+
 	ZombieBlockBehavior = {
 		properties: {
-			display: {
-				type: Boolean,
-				value: false/*,
-				notify: true,
-				observer: 'displayChanged'*/
-			},
-			columns: {
-				type: Number,
-				value: 1
-			},
-			rows: {
-				type: Number,
-				value: 1
-			}
 		},
 		ready: function() {
 			// Randomly generate background color
 			var colors = ZombieConfig.layout.palette;
-			this.style.background = colors[Math.floor(Math.random() * colors.length)];
+			var changeBackground = function(_this) {
+				_this.style.background = colors[Math.floor(Math.random() * colors.length)];
+			};
+			changeBackground(this);
+			// Change background color periodically (10 minutes)
+			var _this = this;
+			setInterval(function() {
+				changeBackground(_this);
+			}, 600000);
 			// Setup column classes
 			if(this.columns > 1) {
 				this.classList.add('two-columns');
