@@ -46,16 +46,13 @@
     },
     populateProperties: function(_this) {
       var now = new Date();
-      var zeroPad = function(value) {
-        return ('00' + value).slice(-2);
-      };
       if(!_this.militaryTime && now.getHours() > 12) {
-        _this.hours = zeroPad((now.getHours() - 12));
+        _this.hours = (now.getHours() - 12);
       }
       else {
-        _this.hours = zeroPad(now.getHours());
+        _this.hours = now.getHours();
       }
-      _this.minutes = zeroPad(now.getMinutes());
+      _this.minutes = ('00' + now.getMinutes()).slice(-2);
       _this.day = DAY_NAMES[now.getDay()];
       _this.month = MONTH_NAMES[now.getMonth()];
       _this.date = now.getDate();
