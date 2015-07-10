@@ -1,19 +1,11 @@
 (function(Polymer) {
 
-  var ICONS = {
-    'chancerain': 'wi-day-showers',
-    'chancetstorms': 'wi-day-storm-showers',
-    'clear': 'wi-day-sunny',
-    'cloudy': 'wi-cloudy',
-    'mostlycloudy': 'wi-day-cloudy',
-    'partlycloudy': 'wi-day-sunny-overcast',
-    'rain': 'wi-day-rain',
-    'tstorms': 'wi-day-thunderstorm'
-  };
-
   Polymer({
+
     is: 'zombie-block-weather',
+
     behaviors: [ZombieBlockBehavior],
+
     properties: {
       zipCode: { 
         type: String
@@ -31,13 +23,16 @@
         computed: 'computeWundergroundUrl(zipCode)',
       }
     },
+
     created: function() {
       this.setDimensions(2, 2);
     },
+
     ready: function() {
       this.registerGlobalListeners();
       this.initializeDisplay();
     },
+
     initializeDisplay: function() {
       if(ZombieConfig.keys.wunderground) {
         this.$$('.content.has-api-key').style.display = 'block';
@@ -54,6 +49,7 @@
         this.$$('.content.no-api-key').style.display = 'block';
       }
     },
+
     registerGlobalListeners: function() {
       var _this = this;
       document.addEventListener(ZombieConfig.events.settings.wunderground, function() {
@@ -62,6 +58,7 @@
         _this.initializeDisplay();
       });
     },
+
     computeAjaxUrl: function(zipCode) {
       var url = false;
       if(ZombieConfig.keys.wunderground && zipCode) {
@@ -69,6 +66,7 @@
       }
       return url;
     },
+
     computeWundergroundUrl: function(zipCode) {
       var url = '';
       if(zipCode) {
@@ -76,6 +74,7 @@
       }
       return url;
     },
+
     onAjaxResponse: function(event, data) {
       if(data && data.response && data.response.forecast && data.response.current_observation) {
         this.display = true;
@@ -103,9 +102,22 @@
         this.weather = weather;
       }
     },
+
     onSettingsClick: function() {
       this.fire(ZombieConfig.events.settings.toggle);
     }
-  });
 
+  });
+  
+  var ICONS = {
+    'chancerain': 'wi-day-showers',
+    'chancetstorms': 'wi-day-storm-showers',
+    'clear': 'wi-day-sunny',
+    'cloudy': 'wi-cloudy',
+    'mostlycloudy': 'wi-day-cloudy',
+    'partlycloudy': 'wi-day-sunny-overcast',
+    'rain': 'wi-day-rain',
+    'tstorms': 'wi-day-thunderstorm'
+  };
+  
 }(window.Polymer));

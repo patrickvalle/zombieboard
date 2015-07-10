@@ -1,11 +1,14 @@
+<!-- imports -->
 <link rel="import" href="../zombie-block/zombie-block.html">
 
 <dom-module id="zombie-block-weather">
-  <!-- Styling -->
+
+  <!-- styling -->
   <link rel="import" type="css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/1.3.2/css/weather-icons.min.css">
   <link rel="import" type="css" href="../zombie-block/zombie-block.css">
   <link rel="import" type="css" href="zombie-block-weather.css">
-  <!-- Template -->
+
+  <!-- template -->
   <template>
     <paper-material elevation="1">
       <div class="content has-api-key">
@@ -35,6 +38,8 @@
     </paper-material>
     <iron-ajax auto url="{{ajaxUrl}}" handle-as="json" on-response="onAjaxResponse"></iron-ajax>
   </template>
-  <!-- Polymer glue -->
+
+  <!-- scripts -->
   <script src="zombie-block-weather.js"></script>
+
 </dom-module>

@@ -1,9 +1,11 @@
 (function(Polymer) {
 
-  // Polymer definition
   Polymer({
+
     is: 'zombie-block-stock',
+
     behaviors: [ZombieBlockBehavior],
+
     properties: {
       symbol: { 
         type: String
@@ -21,12 +23,14 @@
         computed: 'computeGoogleFinanceUrl(symbol)',
       }
     },
+
     ready: function() {
       var ironAjax = this.$$('iron-ajax');
       setInterval(function() {
         ironAjax.generateRequest();
       }, this.refreshEvery);
     },
+
     computeAjaxUrl: function(symbol) {
       var url = false;
       if(symbol) {
@@ -34,6 +38,7 @@
       }
       return url;
     },
+
     computeGoogleFinanceUrl: function(symbol) {
       var url = '';
       if(symbol) {
@@ -41,6 +46,7 @@
       }
       return url;
     },
+
     onAjaxResponse: function(event, data) {
       this.display = true;
       // Get the price
@@ -59,6 +65,7 @@
         }
       };
     }
+    
   });
 
 }(window.Polymer));
