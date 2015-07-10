@@ -8,14 +8,14 @@ paper-toolbar.settings { background: #fff; bottom: -200px; color: #666; margin: 
 .form paper-input { float: left; margin: 0 5px; width: calc(50% - 10px); }
 
 .buttons { text-align: right; width: 100%; }
-paper-button p { display: inline; position: relative; top: 2px; }
-paper-icon-button { display: none; }
+.buttons paper-button p { display: inline; position: relative; top: 2px; }
+.buttons paper-icon-button { display: none; }
 .buttons paper-button.primary { background: #3f51b5; color: #fff; }
 .buttons paper-icon-button.primary { color: #3f51b5; }
 
 @media (max-width: 767px) {
 	.form { height: 100px; top: 32px; }
 	.form paper-input { margin: 0; width: 100%; }
-	paper-button { display: none; }
-	paper-icon-button { display: inline-block; }
+	.buttons paper-button { display: none; }
+	.buttons paper-icon-button { display: inline-block; }
 }

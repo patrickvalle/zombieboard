@@ -13,7 +13,7 @@
       },
       refreshEvery: {
         type: Number,
-        value: 60000
+        value: 3600000 // hour
       },
       ajaxUrl: {
         type: String,

@@ -3,10 +3,10 @@ paper-toolbar.toolbar { background: #fff; color: #666; margin: 0 0 0 -10px; posi
 h1.title.zombie-toolbar { font-size: 30px !important; font-weight: 700 !important; margin-left: 0 !important; }
 
 .buttons { position: relative; right: -6px; }
-paper-button p { display: inline; position: relative; top: 2px; }
-paper-icon-button { display: none; }
+.buttons paper-button p { display: inline; position: relative; top: 2px; }
+.buttons paper-icon-button { display: none; }
 
 @media (max-width: 767px) {
-	paper-button { display: none; }
-	paper-icon-button { display: inline-block; }
+	.buttons paper-button { display: none; }
+	.buttons paper-icon-button { display: inline-block; }
 }

@@ -1,11 +1,11 @@
 (function(Polymer, Masonry) {
 
-  // Polymer definition
   Polymer({
+
     is: 'zombie-blocks',
-    properties: {
-    },
+
     ready: function() {
+      // Initialize Masonry
       var blocks = document.querySelector('.blocks');
       var masonry = new Masonry(blocks, {
         columnWidth: 145,

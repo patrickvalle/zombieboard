@@ -1,55 +1,77 @@
+<!-- common imports used by all zombie blocks -->
 <link rel="import" href="../../bower/polymer/polymer.html">
 <link rel="import" href="../../bower/iron-ajax/iron-ajax.html">
 <link rel="import" href="../../bower/iron-icons/iron-icons.html">
 <link rel="import" href="../../bower/iron-icon/iron-icon.html">
 <link rel="import" href="../../bower/paper-material/paper-material.html">
-<link rel="import" href="../../bower/paper-ripple/paper-ripple.html">
 <link rel="import" href="../../bower/paper-styles/paper-styles.html">
 <link rel="import" href="../zombie-config/zombie-config.html">
 
 <script>
 
+	/**
+	 * Polymer behavior used by all zombie blocks
+	 */
 	ZombieBlockBehavior = {
-		properties: {
-		},
+
+		// Interval at which to change a zombie block's background color (in millis)
+		BACKGROUND_CHANGE_INTERVAL: 600000, // 10 minutes
+
+		/**
+		 * Common DOM ready hook that gets called by all zombie blocks
+		 */
 		ready: function() {
-			// Randomly generate background color
-			var colors = ZombieConfig.layout.palette;
-			var changeBackground = function(_this) {
+			var _this = this;
+			// Every zombie block gets a "block" class
+			_this.classList.add('block');
+			// Setup the initial background color
+			var paintBlock = function() {
+				var colors = ZombieConfig.layout.palette;
 				_this.style.background = colors[Math.floor(Math.random() * colors.length)];
 			};
-			changeBackground(this);
-			// Change background color periodically (10 minutes)
-			var _this = this;
-			setInterval(function() {
-				changeBackground(_this);
-			}, 600000);
-			// Setup column classes
-			if(this.columns > 1) {
-				this.classList.add('two-columns');
-			}
-			// Setup row classes
-			switch(this.rows) {
-				case 2:
-					this.classList.add('two-rows');
-					break;
-				case 3:
-					this.classList.add('three-rows');
-					break;
-				case 4:
-					this.classList.add('four-rows');
-					break;
-				default:
-					break;
-			}
-			this.classList.add('block');
+			paintBlock();
+			// Periodically change the background color
+			setInterval(paintBlock, _this.BACKGROUND_CHANGE_INTERVAL);
+			// Setup column classes (max @ 2 for mobile support)
+			var setupColumns = function() {
+				switch(_this.columns) {
+					case 2:
+						_this.classList.add('two-columns');
+						break;
+					default:
+						_this.classList.add('one-column');
+						break;
+				}
+			};
+			setupColumns();
+			// Setup row classes (current max @ 4)
+			var setupRows = function() {
+				switch(_this.rows) {
+					case 2:
+						_this.classList.add('two-rows');
+						break;
+					case 3:
+						_this.classList.add('three-rows');
+						break;
+					case 4:
+						_this.classList.add('four-rows');
+						break;
+					default:
+						_this.classList.add('one-row');
+						break;
+				}
+			};
+			setupRows();
 		},
-		displayChanged: function(display) {
-			
-		},
+
+		/**
+		 * Function that can be optionally called by zombie blocks to set their dimension 
+		 * (this should be called inside of your .created() function).
+		 */
 		setDimensions: function(columns, rows) {
 			this.columns = columns;
 			this.rows = rows;
 		}
+
 	};
 </script>
