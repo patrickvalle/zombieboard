@@ -11,8 +11,8 @@
     <script src="assets/bower/webcomponentsjs/webcomponents.js"></script>
     <!-- webcomponent imports -->
     <link rel="import" href="assets/webcomponents/zombie-blocks/zombie-blocks.html">
-    <link rel="import" href="assets/webcomponents/zombie-block-alert/zombie-block-alert.html">
     <link rel="import" href="assets/webcomponents/zombie-block-clock/zombie-block-clock.html">
+    <link rel="import" href="assets/webcomponents/zombie-block-feed/zombie-block-feed.html">
     <link rel="import" href="assets/webcomponents/zombie-block-stock/zombie-block-stock.html">
     <link rel="import" href="assets/webcomponents/zombie-block-weather/zombie-block-weather.html">
     <link rel="import" href="assets/webcomponents/zombie-settings/zombie-settings.html">
@@ -31,13 +31,17 @@
   		<!-- weather -->
   		<zombie-block-weather zip-code="27705"></zombie-block-weather>
   		<zombie-block-weather zip-code="08054"></zombie-block-weather>
-      <!-- alerts -->
-      <zombie-block-alert group="09703356818366245740" id="18063237606118388744"></zombie-block-alert>
-  		<!-- stocks -->
+      <!-- stocks -->
 			<zombie-block-stock symbol="TSLA"></zombie-block-stock>
 			<zombie-block-stock symbol="SCTY"></zombie-block-stock>
 			<zombie-block-stock symbol="GOOGL"></zombie-block-stock>
 			<zombie-block-stock symbol="AMZN"></zombie-block-stock>
+      <!-- feeds -->
+      <zombie-block-feed url="https://www.google.com/alerts/feeds/09703356818366245740/13214515735875092081"></zombie-block-feed> <!-- Google Fiber Durham -->
+      <zombie-block-feed url="https://www.google.com/alerts/feeds/09703356818366245740/13483581582713015489"></zombie-block-feed> <!-- Tesla -->
+      <zombie-block-feed url="https://www.google.com/alerts/feeds/09703356818366245740/18063237606118388744"></zombie-block-feed> <!-- North Carolina -->
+      <zombie-block-feed url="https://www.google.com/alerts/feeds/09703356818366245740/7804504721172702202"></zombie-block-feed>  <!-- FoodLogiq -->
+      <zombie-block-feed url="https://www.google.com/alerts/feeds/09703356818366245740/9638155236817952560"></zombie-block-feed>  <!-- Patrick Valle -->
 		</zombie-blocks>
     <!-- settings dialog -->
     <zombie-settings></zombie-settings>

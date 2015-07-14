@@ -33,7 +33,7 @@
         _this.month = MONTH_NAMES[now.getMonth()];
         _this.date = now.getDate();
       };
-      _this.populateProperties();
+      populateProperties();
       setInterval(populateProperties, 1000);
     }
 

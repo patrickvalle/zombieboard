@@ -2,6 +2,7 @@
   "name": "zombieboard",
   "version": "1.0.0",
   "dependencies": {
+    "google-feeds": "GoogleWebComponents/google-feeds#~1.0.1",
     "iron-ajax": "PolymerElements/iron-ajax#~1.0.2",
     "paper-elements": "PolymerElements/paper-elements#~1.0.1",
     "polymer": "Polymer/polymer#~1.0.3"

@@ -73,6 +73,16 @@
 		setDimensions: function(columns, rows) {
 			this.columns = columns;
 			this.rows = rows;
+		},
+
+		show: function() {
+			this.style.display = 'initial';
+			this.fire(ZombieConfig.events.blocks.layout);
+		},
+
+		hide: function() {
+			this.style.display = 'none';
+			this.fire(ZombieConfig.events.blocks.layout);
 		}
 
 	};

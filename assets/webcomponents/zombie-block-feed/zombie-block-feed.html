@@ -1,0 +1,24 @@
+<!-- imports -->
+<link rel="import" href="../../bower/google-feeds/google-feeds.html">
+<link rel="import" href="../zombie-block/zombie-block.html">
+
+<dom-module id="zombie-block-feed">
+
+  <!-- styling -->
+  <link rel="import" type="css" href="../zombie-block/zombie-block.css">
+  <link rel="import" type="css" href="zombie-block-feed.css">
+
+  <!-- template -->
+  <template>
+    <paper-material elevation="1">
+      <div class="content">
+        <p class="title" title="[[title]]"><a href="[[link]]" target="_blank">[[title]]</a></p>
+      </div>
+    </paper-material>
+    <google-feeds feed="[[url]]" results="{{feedResult}}" count="1"></google-feeds>
+  </template>
+
+  <!-- scripts -->
+  <script src="zombie-block-feed.js"></script>
+
+</dom-module>
