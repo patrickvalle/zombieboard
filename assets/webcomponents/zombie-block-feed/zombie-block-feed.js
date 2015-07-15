@@ -38,9 +38,9 @@
             .split('&#39;').join("'");
       };
       if(this.feedResult && this.feedResult.entries && this.feedResult.entries.length > 0) {
-        var item = this.feedResult.entries[Math.floor(Math.random() * this.feedResult.entries.length)];
-        this.title = unescape(item.title);
-        this.link = item.link;
+        var entry = this.feedResult.entries[0];
+        this.title = unescape(entry.title);
+        this.link = entry.link;
         this.show();
       }
       else {
