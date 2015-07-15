@@ -19,6 +19,12 @@
 		// Interval at which to change a zombie block's background color (in millis)
 		BACKGROUND_CHANGE_INTERVAL: 600000, // 10 minutes
 
+		properties: {
+			color: {
+				type: String
+			}
+		},
+
 		/**
 		 * Common DOM ready hook that gets called by all zombie blocks
 		 */
@@ -27,13 +33,19 @@
 			// Every zombie block gets a "block" class
 			_this.classList.add('block');
 			// Setup the initial background color
-			var paintBlock = function() {
-				var colors = ZombieConfig.layout.palette;
-				_this.style.background = colors[Math.floor(Math.random() * colors.length)];
-			};
-			paintBlock();
-			// Periodically change the background color
-			setInterval(paintBlock, _this.BACKGROUND_CHANGE_INTERVAL);
+			if(_this.color) {
+				_this.style.background = _this.color;
+			}
+			else {
+				// Choose a random background color
+				var paintBlock = function() {
+					var colors = ZombieConfig.layout.palette;
+					_this.style.background = colors[Math.floor(Math.random() * colors.length)];
+				};
+				paintBlock();
+				// Periodically change the background color
+				setInterval(paintBlock, _this.BACKGROUND_CHANGE_INTERVAL);
+			}
 			// Setup column classes (max @ 2 for mobile support)
 			var setupColumns = function() {
 				switch(_this.columns) {

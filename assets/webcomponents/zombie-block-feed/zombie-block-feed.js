@@ -38,8 +38,9 @@
             .split('&#39;').join("'");
       };
       if(this.feedResult && this.feedResult.entries && this.feedResult.entries.length > 0) {
-        this.title = unescape(this.feedResult.entries[0].title);
-        this.link = this.feedResult.entries[0].link;
+        var item = this.feedResult.entries[Math.floor(Math.random() * this.feedResult.entries.length)];
+        this.title = unescape(item.title);
+        this.link = item.link;
         this.show();
       }
       else {
