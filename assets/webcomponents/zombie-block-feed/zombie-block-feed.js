@@ -10,6 +10,10 @@
       url: {
         type: String
       },
+      alwaysGrabFirst: {
+        type: Boolean,
+        value: false
+      },
       refreshEvery: {
         type: Number,
         value: 600000 // 10 minutes
@@ -37,13 +41,16 @@
             .split('&#039;').join("'")
             .split('&#39;').join("'");
       };
+
       if(this.feedResult && this.feedResult.entries && this.feedResult.entries.length > 0) {
-        var entry = this.feedResult.entries[0];
+        this.resultReturned = true;
+        var index = this.alwaysGrabFirst ? 0 : Math.floor(Math.random() * this.feedResult.entries.length);
+        var entry = this.feedResult.entries[index];
         this.title = unescape(entry.title);
         this.link = entry.link;
         this.show();
       }
-      else {
+      else if(!this.resultReturned) {
         this.hide();
       }
     }
